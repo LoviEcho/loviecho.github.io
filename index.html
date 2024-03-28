@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Email Verification</h2>
+        <form id="verificationForm">
+            <input type="text" id="verificationCode" placeholder="Enter 6-digit code">
+            <button type="submit">Verify</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById("verificationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var verificationCode = document.getElementById("verificationCode").value;
+            // Kirim kode verifikasi ke backend untuk diverifikasi
+            // Misalnya, menggunakan fetch API atau XMLHttpRequest
+            // Setelah diverifikasi, tampilkan pesan kepada pengguna
+            document.getElementById("message").innerText = "Verification code submitted: " + verificationCode;
+        });
+    </script>
+</body>
+</html>
