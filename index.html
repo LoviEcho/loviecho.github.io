@@ -11,25 +11,21 @@
   <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <iframe src="sound.mp3" hidden="hidden" allow="autoplay; encrypted-media"></iframe>
   <style>
     :root {
       font-size: 62.5%;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       background-image: url("https://telegra.ph/file/1882855c255c5bf40f42a.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
     }
-
     main {
       height: 100vh;
       position: relative;
@@ -38,7 +34,6 @@
       justify-content: center;
       flex-direction: column;
     }
-
     .container {
       width: 28rem;
       padding: 1rem 2rem;
@@ -51,7 +46,6 @@
       position: relative;
       z-index: 1;
     }
-
     .image {
       width: 40%;
       height: auto;
@@ -60,28 +54,22 @@
       margin: 1rem auto;
       cursor: pointer;
     }
-
     hr {
       border-color: #673146;
     }
-
-    h1,
-    .occupation {
+    h1, .occupation {
       text-align: center;
     }
-
     h1 {
       font-family: Muli, sans-serif;
       font-weight: 700;
       font-size: 2.3rem;
     }
-
     .occupation {
       margin-bottom: 0.5rem;
       font-size: 1.5rem;
       font-family: "Space Mono", monospace;
     }
-
     .link-boxes {
       margin: 2rem 1rem;
       font-family: Muli, sans-serif;
@@ -89,7 +77,6 @@
       font-size: 1.4em;
       text-transform: capitalize;
     }
-
     .link-boxes a {
       text-decoration: none;
       display: block;
@@ -102,13 +89,11 @@
       transition: all 200ms ease-in-out;
       box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
     }
-
     .link-boxes a:hover {
       border: 0.1rem solid #27213b;
       background-color: #f8923b;
       cursor: pointer;
     }
-
     .location {
       display: block;
       text-align: center;
@@ -118,14 +103,11 @@
       color: #27213b;
       text-decoration: none;
     }
-
     .location:hover {
       color: #f8923b;
       text-decoration: underline;
     }
-
     .container {}
-
     #effetsalju {
       position: fixed;
       top: 0;
@@ -136,12 +118,10 @@
       z-index: 0;
       /* Tetapkan z-index untuk efek salju */
     }
-
     @media only screen and (min-width: 992px) {
       .image {
         width: 40%;
       }
-
       h1 {
         font-size: 2.4rem;
       }
@@ -171,7 +151,7 @@
         <a class="shadow" title="Send a mail to Siputzx" href="mailto:yopi120708@gmail.com" target="_blank"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> E-mail</a>
       </div>
       <hr/>
-      <a href="https://www.google.com/maps/search/?api=1&query=Lampung%2C%20Indonesia" target="_blank" class="location"><i class="fa fa-map-marker icon" aria-hidden="true"></i> Lampung, Indonesia</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Lampung%2CIndonesia" target="_blank" class="location"><i class="fa fa-map-marker icon" aria-hidden="true"></i> Lampung, Indonesia</a>
     </div>
   </main>
 
@@ -190,7 +170,19 @@
     </div>
   </div>
 
+  <!-- Audio Element -->
+  <audio id="audio" src="sound.mp3"></audio>
+
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var audio = document.getElementById('audio');
+      audio.addEventListener('ended', function () {
+        this.currentTime = 0;
+        this.play();
+      }, false);
+      audio.play();
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
       const shikimoriLink = document.getElementById('shikimori-link');
       const kurumiLink = document.getElementById('kurumi-link');
