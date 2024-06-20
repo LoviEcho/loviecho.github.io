@@ -1,1 +1,149 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Game Tebak Gambar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="https://telegra.ph/file/df6553160003f71a97050.jpg">
+  <title>Game Tebak Gambar</title>
+  <script src="https://kit.fontawesome.com/6fab3a0556.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      font-size: 62.5%;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-image: url("https://telegra.ph/file/1882855c255c5bf40f42a.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+    main {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 2rem;
+      border: 0.1rem solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(1.5rem);
+      text-align: center;
+      z-index: 1;
+    }
+    .image {
+      width: 40%;
+      height: auto;
+      border-radius: 5rem;
+      display: block;
+      margin: 1rem auto;
+      cursor: pointer;
+    }
+    hr {
+      border-color: #673146;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-family: Muli, sans-serif;
+      font-weight: 700;
+      font-size: 2.3rem;
+    }
+    h2 {
+      font-family: Muli, sans-serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      border: 0.1rem solid #ccc;
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+    }
+    input[type="text"]:focus {
+      border-color: #673146;
+      box-shadow: 0 0 5px rgba(103, 49, 70, 0.8);
+      outline: none;
+    }
+    button {
+      background-color: #673146;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1.6rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button:hover {
+      background-color: #f8923b;
+    }
+    #score {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      color: #555;
+    }
+    #effetsalju {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @media only screen and (min-width: 992px) {
+      .container {
+        width: 70%;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+      input[type="text"] {
+        font-size: 1.8rem;
+      }
+      button {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="effetsalju"></div>
+  <main>
+    <div class="container shadow">
+      <h1>Game Tebak Gambar</h1>
+      <h2>Gambar:</h2>
+      <div id="image-container">
+        <img id="question-image" src="" alt="Tebak Gambar" class="img-fluid">
+      </div>
+      <input type="text" id="answerInput" placeholder="Jawaban">
+      <button onclick="checkAnswer()">Check</button>
+      <div id="score"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
