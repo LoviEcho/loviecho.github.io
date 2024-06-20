@@ -107,6 +107,16 @@
       color: #f8923b;
       text-decoration: underline;
     }
+    .video-container {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    #video {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
     .container {}
     #effetsalju {
       position: fixed;
@@ -150,6 +160,13 @@
         <a class="shadow" title="Follow LoviEcho_ofc on Threads" href="https://www.threads.net/@yopi.afz" target="_blank"><i class="fab fa-threads icon" aria-hidden="true"></i> Threads</a>
         <a class="shadow" title="Send a mail to Siputzx" href="mailto:yopi120708@gmail.com" target="_blank"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> E-mail</a>
       </div>
+
+      <div class="video-container">
+        <video id="video" controls>
+          <source src="https://f.uguu.se/kjrBPHKE.mp4" type="video/mp4">
+        </video>
+      </div>
+
       <hr/>
       <a href="https://www.google.com/maps/search/?api=1&query=Lampung%2CIndonesia" target="_blank" class="location"><i class="fa fa-map-marker icon" aria-hidden="true"></i> Lampung, Indonesia</a>
     </div>
@@ -170,20 +187,10 @@
     </div>
   </div>
 
-  <!-- Audio Element -->
-  <audio id="audio" src="sound.mp3"></audio>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var audio = document.getElementById('audio');
-      audio.addEventListener('ended', function () {
-        this.currentTime = 0;
-        this.play();
-      }, false);
-      audio.play();
-    });
 
-    document.addEventListener('DOMContentLoaded', function () {
+      // Modal and Image Handling
       const shikimoriLink = document.getElementById('shikimori-link');
       const kurumiLink = document.getElementById('kurumi-link');
       const ninoLink = document.getElementById('nino-link');
@@ -192,8 +199,8 @@
 
       const imageElement = document.querySelector('.image');
       imageElement.addEventListener('click', function () {
-        modalImage.src = imageElement.src;
-        modal.show();
+        modalImage.src = imageElement.src
+        modal.show()
       });
 
       shikimoriLink.addEventListener('click', function (event) {
@@ -210,7 +217,7 @@
       });
       ninoLink.addEventListener('click', function (event) {
         event.preventDefault()
-        const imageUrl = 'https://telegra.ph/file/c26192c5f7a3d54b3c485.jpg'
+        const imageUrl = 'https://telegra.ph/file/635bfbef1c65c9fa231cb.jpg'
         modalImage.src = imageUrl
         modal.show()
       });
