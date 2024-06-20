@@ -156,7 +156,7 @@
       <h1>Yopi Ahmad Afrizal</h1>
       <hr/>
       <p class="occupation">私のボーイフレンド</p>
-      <p class="occupation"><a href="#" id="shikimori-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Shikimori</a></p>
+      <p class="occupation"><a href="#" id="shikimori-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Shikimori / </a><a href="#" id="kurumi-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Kurumi / </a><a href="#" id="nino-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Nino</a></p>
       <hr/>
       <div class="link-boxes">
         <a class="shadow" title="View Yopi GitHub profile" href="https://github.com/loviecho" target="_blank"><i class="fa fa-github icon" aria-hidden="true"></i> GitHub</a>
@@ -193,22 +193,34 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const shikimoriLink = document.getElementById('shikimori-link');
+      const kurumiLink = document.getElementById('kurumi-link');
+      const ninoLink = document.getElementById('nino-link');
       const modalImage = document.getElementById('modalImage');
       const modal = new bootstrap.Modal(document.getElementById('imageModal'), {});
 
-      // Ketika gambar di klik
       const imageElement = document.querySelector('.image');
       imageElement.addEventListener('click', function () {
         modalImage.src = imageElement.src;
         modal.show();
       });
 
-      // Ketika link "Shikimori" diklik
       shikimoriLink.addEventListener('click', function (event) {
-        event.preventDefault(); // Menghentikan aksi default dari link
-        const imageUrl = 'https://telegra.ph/file/57370ac32767e70517091.jpg';
-        modalImage.src = imageUrl;
-        modal.show();
+        event.preventDefault()
+        const imageUrl = 'https://telegra.ph/file/57370ac32767e70517091.jpg'
+        modalImage.src = imageUrl
+        modal.show()
+      });
+      kurumiLink.addEventListener('click', function (event) {
+        event.preventDefault()
+        const imageUrl = 'https://telegra.ph/file/9f7fbe2e3aff74e932570.jpg'
+        modalImage.src = imageUrl
+        modal.show()
+      });
+      ninoLink.addEventListener('click', function (event) {
+        event.preventDefault()
+        const imageUrl = 'https://telegra.ph/file/c26192c5f7a3d54b3c485.jpg'
+        modalImage.src = imageUrl
+        modal.show()
       });
     });
   </script>
