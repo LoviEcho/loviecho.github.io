@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Gambar Favorit Yopi</title>
+    <title>Daftar Gambar dalam Folder</title>
     <style>
-        .image-container {
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            max-height: 80vh; /* Maksimum tinggi kontainer sebelum scroll */
+            overflow-y: auto; /* Memungkinkan scrolling vertikal jika lebih dari maksimum tinggi */
         }
         .image-container img {
-            max-width: 200px;
+            max-width: 100%;
             height: auto;
+            display: block;
         }
     </style>
 </head>
