@@ -1,6 +1,6 @@
 <?php
 // Path ke folder yang ingin Anda tampilkan isinya
-$folderPath = './folder_gambar_anda/';
+$folderPath = './gambar/';
 
 // Mendapatkan daftar file dalam folder
 $files = scandir($folderPath);
