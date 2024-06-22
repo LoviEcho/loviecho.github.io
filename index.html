@@ -22,7 +22,7 @@
       <img class="image" src="https://telegra.ph/file/715a6e5843728d98b33de.jpg" alt="Picture" loading="lazy" data-bs-toggle="modal" data-bs-target="#imageModal">
       <h1>Yopi Ahmad Afrizal</h1>
       <hr/>
-      <p class="occupation">私のボーイフレンド</p>
+      <p class="occupation"><a href="#" id="ttl-link" style="text-decoration: none; color: #27213b; cursor: pointer;">12-Juli-2008</a>
       <p class="occupation"><a href="#" id="shikimori-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Shikimori / </a><a href="#" id="kurumi-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Kurumi / </a><a href="#" id="nino-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Nino</a></p>
       <hr/>
       <div class="link-boxes">
@@ -71,6 +71,7 @@
       const shikimoriLink = document.getElementById('shikimori-link');
       const kurumiLink = document.getElementById('kurumi-link');
       const ninoLink = document.getElementById('nino-link');
+      const ttlLink = document.getElementById('ttl-link');
       const modalImage = document.getElementById('modalImage');
       const modal = new bootstrap.Modal(document.getElementById('imageModal'), {});
 
@@ -79,10 +80,15 @@
         modalImage.src = imageElement.src
         modal.show()
       });
-
-      shikimoriLink.addEventListener('click', function (event) {
+      ttlLink.addEventListener('click', function (event) {
         event.preventDefault()
         const imageUrl = 'https://telegra.ph/file/57370ac32767e70517091.jpg'
+        modalImage.src = imageUrl
+        modal.show()
+      });
+      shikimoriLink.addEventListener('click', function (event) {
+        event.preventDefault()
+        const imageUrl = 'https://telegra.ph/file/137a82f08e4156098aa4f.jpg'
         modalImage.src = imageUrl
         modal.show()
       });
