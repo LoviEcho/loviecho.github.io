@@ -68,28 +68,44 @@
             const fullScreen = document.getElementById('fullScreen');
             const fullScreenImage = document.getElementById('fullScreenImage');
             const totalImages = 10; // Ubah sesuai jumlah gambar yang ada di folder
-            const imageNumbers = Array.from({ length: totalImages }, (_, i) => i + 1);
 
-            // Shuffle image numbers
-            for (let i = imageNumbers.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [imageNumbers[i], imageNumbers[j]] = [imageNumbers[j], imageNumbers[i]];
-            }
-
-            // Create image elements and append to gallery
-            imageNumbers.forEach(num => {
+            // Function to create image element and append to gallery
+            function addImageToGallery(num) {
                 const img = document.createElement('img');
                 img.src = `images/${num}.jpg`;
                 img.alt = `Image ${num}`;
-                img.onerror = function() {
-                    console.error(`Failed to load image: ${img.src}`);
-                    this.style.display = 'none';
-                };
                 img.addEventListener('click', function() {
                     fullScreenImage.src = this.src;
                     fullScreen.classList.remove('hidden');
                 });
                 gallery.appendChild(img);
+            }
+
+            // Function to check if image exists
+            function checkImageExists(num) {
+                return fetch(`images/${num}.jpg`)
+                    .then(response => {
+                        if (response.ok) {
+                            addImageToGallery(num);
+                        } else {
+                            console.error(`Failed to load image: images/${num}.jpg`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`Error fetching image: images/${num}.jpg`, error);
+                    });
+            }
+
+            // Shuffle image numbers
+            const imageNumbers = Array.from({ length: totalImages }, (_, i) => i + 1);
+            for (let i = imageNumbers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [imageNumbers[i], imageNumbers[j]] = [imageNumbers[j], imageNumbers[i]];
+            }
+
+            // Check if each image exists and add to gallery
+            imageNumbers.forEach(num => {
+                checkImageExists(num);
             });
 
             // Show full-screen image when the page loads
