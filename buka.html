@@ -24,7 +24,7 @@
             const password = document.getElementById('password').value.trim();
 
             // Ambil pesan dari server menggunakan password
-            fetch(`/api/open-message?password=${password}`)
+            fetch(`/pesan/open-message?password=${password}`)
             .then(response => response.json())
             .then(data => {
                 document.getElementById('message').innerText = data.message;
