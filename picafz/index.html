@@ -51,6 +51,9 @@
                 const img = document.createElement('img');
                 img.src = `images/${num}.jpg`;
                 img.alt = `Image ${num}`;
+                img.onerror = function() {
+                    this.style.display = 'none';
+                };
                 gallery.appendChild(img);
             });
         });
