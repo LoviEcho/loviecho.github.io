@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest-like Gallery</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .gallery {
+            column-count: 3;
+            column-gap: 1em;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .gallery img {
+            width: 100%;
+            break-inside: avoid;
+            margin-bottom: 1em;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="gallery" id="gallery"></div>
-    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallery = document.getElementById('gallery');
+            const totalImages = 10; // Ubah sesuai jumlah gambar yang ada di folder
+            const imageNumbers = Array.from({ length: totalImages }, (_, i) => i + 1);
+
+            // Shuffle image numbers
+            for (let i = imageNumbers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [imageNumbers[i], imageNumbers[j]] = [imageNumbers[j], imageNumbers[i]];
+            }
+
+            // Create image elements and append to gallery
+            imageNumbers.forEach(num => {
+                const img = document.createElement('img');
+                img.src = `images/${num}.jpg`;
+                img.alt = `Image ${num}`;
+                gallery.appendChild(img);
+            });
+        });
+    </script>
 </body>
 </html>
