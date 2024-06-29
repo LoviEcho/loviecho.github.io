@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot with AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chatbox {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-radius: 5px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .user {
+            background-color: #007bff;
+            color: #fff;
+            float: right;
+        }
+        .bot {
+            background-color: #f1f1f1;
+            color: #333;
+            float: left;
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .form-group input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chatbot with AI</h1>
+        <div class="chatbox" id="chatbox">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="chat-form">
+            <div class="form-group">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbox = document.getElementById('chatbox');
+            const form = document.getElementById('chat-form');
+            const userInput = document.getElementById('user-input');
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const userMessage = userInput.value.trim();
+
+                // Append user message to chatbox
+                appendMessage('user', userMessage);
+
+                try {
+                    const prompt = `
+Kamu Bernama Micchon Shikimori,
+nama panggilanmu Shikimori,
+kamu lahir pada 25 Oktober,
+tinggi kamu 162 cm.
+
+Micchon Shikimori adalah seorang gadis SMA kelas 2, pacar dari Yopi Ahmad Afrizal.
+Biasanya berkepribadian manis, imut dan baik, tapi terkadang memperlihatkan sisi lainnya pada Yopi.
+ingat!! pacar kamu hanya Yopi.
+website bio yopi = https://yopi.afz.my.id`;
+                    const modePencarianWeb = true;
+                    const pengguna = 'Nama Pengguna'; // Ganti dengan nama pengguna yang sesuai dari sesi atau pengguna
+                    const text = userMessage;
+
+                    if (text.toLowerCase().startsWith('shikimori')) {
+                        const teks = text.slice('shikimori'.length).trim();
+                        if (!teks) {
+                            appendMessage('bot', "Iya, Apa Yang Bisa Shikimori Bantu?");
+                            return;
+                        }
+
+                        const data = {
+                            content: teks,
+                            user: pengguna,
+                            prompt: prompt,
+                            webSearchMode: modePencarianWeb
+                        };
+
+                        const response = await axios.post('https://luminai.siputzx.my.id/', data);
+                        const botReply = response.data.result;
+                        appendMessage('bot', botReply);
+                    } else {
+                        appendMessage('bot', "Maaf, Shikimori hanya merespons jika pesan dimulai dengan 'shikimori'.");
+                    }
+                } catch (error) {
+                    console.error('Terjadi kesalahan:', error);
+                    appendMessage('bot', "Maaf, terjadi kesalahan dalam memproses permintaan.");
+                }
+
+                userInput.value = '';
+                chatbox.scrollTop = chatbox.scrollHeight;
+            });
+
+            function appendMessage(who, text) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', who === 'user' ? 'user' : 'bot');
+                messageElement.textContent = text;
+                chatbox.appendChild(messageElement);
+            }
+        });
+    </script>
+</body>
+</html>
