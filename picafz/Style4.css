@@ -1,0 +1,169 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.header{
+    min-height: 100vh;
+    width :100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(bg6.jpg);
+    overflow: auto;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/*nav */
+nav{
+    display: flex;
+    padding: 2% 6;
+    justify-content: space-between;
+    align-items: center;
+
+}
+nav img{
+    width: 150px;
+    right: 100px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding:8px 12px ;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #492bf3a1;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover:after{
+
+    width: 100%;
+
+}
+
+/* Content*/
+.Contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+.Contact .content{
+    max-width: 8oopx;
+    text-align: center;
+    color: #fff;
+
+}
+
+.Contact .content h2{
+    font-size: 36px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.Contact.content p{
+    font-size: 26px;
+    font-weight: 100;
+    color: #fff;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container .contactin{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contactin .ping{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container .contactin .ping .icon{
+    min-width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.container .contactin .ping .text{
+    display: flex;
+    margin-left:20px ;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+}
+
+.container .contactin .ping .text h3{
+    font-weight: 500;
+    color: aqua;
+}
+
+
+/* img */
+.map{
+    position: relative;
+    min-height: 50vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+@media (max-width: 700px){
+    .content h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background:#492bf3a1 ;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+    }
+}
