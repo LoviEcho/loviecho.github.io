@@ -30,7 +30,7 @@
             margin: 10px; /* Margin around each item */
             width: calc(100% / 4 - 20px); /* Calculate width with margin */
             overflow: hidden;
-            background-color: #fff; /* Warna latar belakang putih */
+            background-color: transparent; /* Hapus latar belakang putih */
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
             border-radius: 5px;
         }
@@ -44,25 +44,6 @@
         }
         .wallp img.loaded {
             opacity: 1;
-        }
-        .button-overlay {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10;
-        }
-        .button-overlay button {
-            background-color: rgba(255, 255, 255, 0.7); /* Warna latar belakang tombol semi-transparan */
-            color: #000; /* Warna teks tombol */
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .button-overlay button:hover {
-            background-color: rgba(255, 255, 255, 0.9); /* Warna latar belakang tombol semi-transparan saat hover */
-            color: #333; /* Warna teks tombol saat hover */
         }
         .fullscreen {
             display: none;
@@ -183,7 +164,6 @@
 <body>
     <div class="cont">
         <div class="wallp">
-        <div class="wallp">
             <img src="picafz/1.jpg" data-highres="1.jpg" alt="Image 1">
         </div>
         <div class="wallp">
@@ -255,4 +235,4 @@
         <img src="" alt="Fullscreen Image">
     </div>
 </body>
-    </html>
+</html>
