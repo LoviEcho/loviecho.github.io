@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Picture</title>
+    <title>HD Picture</title>
     <style>
         @charset "utf-8";
         * {
@@ -11,6 +11,23 @@
             padding: 0;
             font-family: sans-serif;
             box-sizing: border-box;
+        }
+        .header {
+            min-height: 100vh;
+            width: 100%;
+            background: url(bg4.jpg) center center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        nav img {
+            width: 150px;
         }
         .cont {
             max-width: 1200px;
@@ -23,6 +40,7 @@
         }
         .wallp {
             margin: 5px;
+            border: 1px solid rgb(162, 206, 235);
             width: calc(100% / 4 - 10px);
             overflow: hidden;
             position: relative;
@@ -152,6 +170,11 @@
     </script>
 </head>
 <body>
+    <section class="header">
+        <nav>
+            <a href="hd-picture"><img src="picafz/logo.png" alt="Logo"></a>
+        </nav>
+    </section>
     <div class="cont">
         <div class="wallp">
             <img src="picafz/1.jpg" data-highres="1.jpg" alt="Image 1">
