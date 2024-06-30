@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: sans-serif;
+            box-sizing: border-box;
         }
         .header {
             min-height: 100vh;
@@ -43,6 +44,7 @@
             border: 1px solid rgb(162, 206, 235);
             width: calc(100% / 4 - 10px);
             overflow: hidden;
+            position: relative;
         }
         .wallp img {
             width: 100%;
@@ -65,10 +67,18 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            animation: fadeIn 0.5s;
         }
         .fullscreen img {
             max-width: 90%;
             max-height: 90%;
+            transition: transform 0.5s;
+        }
+        .fullscreen.show {
+            display: flex;
+        }
+        .fullscreen img.zoom {
+            transform: scale(1.1);
         }
         .close-btn {
             position: absolute;
@@ -78,32 +88,17 @@
             color: white;
             cursor: pointer;
         }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
         @media (max-width: 700px) {
             .wallp {
                 width: calc(100% / 2 - 10px);
-            }
-            .nav-links ul li {
-                display: block;
-            }
-            .nav-links {
-                position: absolute;
-                background: #492bf3a1;
-                height: 100vh;
-                width: 200px;
-                top: 0;
-                right: -200px;
-                text-align: left;
-                z-index: 2;
-            }
-            nav .fa {
-                display: block;
-                color: #fff;
-                margin: 10px;
-                font-size: 22px;
-                cursor: pointer;
-            }
-            .nav-links ul {
-                padding: 30px;
             }
         }
         footer {
@@ -153,12 +148,16 @@
                 container.addEventListener('click', function () {
                     const img = this.querySelector('img');
                     fullscreenImg.src = img.src;
-                    fullscreenDiv.style.display = 'flex';
+                    fullscreenDiv.classList.add('show');
+                    setTimeout(() => {
+                        fullscreenImg.classList.add('zoom');
+                    }, 50);
                 });
             });
 
             closeBtn.addEventListener('click', function () {
-                fullscreenDiv.style.display = 'none';
+                fullscreenImg.classList.remove('zoom');
+                fullscreenDiv.classList.remove('show');
             });
 
             lazyLoad();
