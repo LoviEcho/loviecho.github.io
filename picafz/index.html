@@ -34,23 +34,25 @@
             margin: auto;
             background: transparent;
             overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
         .wallp {
             margin: 5px;
             border: 1px solid rgb(162, 206, 235);
-            float: left;
             width: calc(100% / 4 - 10px);
             overflow: hidden;
         }
         .wallp img {
             width: 100%;
             height: auto;
-            filter: blur(10px);
-            transition: filter 0.3s ease;
             cursor: pointer;
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
         .wallp img.loaded {
-            filter: blur(0);
+            opacity: 1;
         }
         .fullscreen {
             display: none;
@@ -77,6 +79,9 @@
             cursor: pointer;
         }
         @media (max-width: 700px) {
+            .wallp {
+                width: calc(100% / 2 - 10px);
+            }
             .nav-links ul li {
                 display: block;
             }
@@ -112,26 +117,42 @@
             const fullscreenImg = fullscreenDiv.querySelector('img');
             const closeBtn = document.querySelector('.close-btn');
 
-            // Function to open fullscreen with the first image on page load
-            function openFullscreenWithFirstImage() {
-                const firstImage = wallpContainers[0].querySelector('img');
-                fullscreenImg.src = firstImage.dataset.highres;
-                fullscreenDiv.style.display = 'flex';
+            function lazyLoad() {
+                const config = {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                };
+
+                let observer = new IntersectionObserver(function (entries, self) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            preloadImage(entry.target);
+                            self.unobserve(entry.target);
+                        }
+                    });
+                }, config);
+
+                wallpContainers.forEach(container => {
+                    observer.observe(container.querySelector('img'));
+                });
             }
 
-            // Open fullscreen with the first image on page load
-            openFullscreenWithFirstImage();
+            function preloadImage(img) {
+                const src = img.dataset.highres;
+                if (!src) {
+                    return;
+                }
+
+                img.src = src;
+                img.onload = () => {
+                    img.classList.add('loaded');
+                };
+            }
 
             wallpContainers.forEach(container => {
                 container.addEventListener('click', function () {
                     const img = this.querySelector('img');
-                    const highResImg = new Image();
-                    highResImg.src = img.dataset.highres;
-                    highResImg.onload = () => {
-                        img.src = highResImg.src;
-                        img.classList.add('loaded');
-                    };
-                    fullscreenImg.src = img.dataset.highres;
+                    fullscreenImg.src = img.src;
                     fullscreenDiv.style.display = 'flex';
                 });
             });
@@ -139,6 +160,8 @@
             closeBtn.addEventListener('click', function () {
                 fullscreenDiv.style.display = 'none';
             });
+
+            lazyLoad();
         });
     </script>
 </head>
