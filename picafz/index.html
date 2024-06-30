@@ -25,7 +25,7 @@
         .wallp {
             position: relative;
             margin: 10px; /* Margin around each item */
-            width: calc(100% - 10px); /* Full width minus margins */
+            width: calc(100% - 40px); /* Full width minus margins */
             max-width: 200px; /* Set a maximum width for each item */
             overflow: hidden;
             background-color: transparent; /* Hapus latar belakang putih */
@@ -99,12 +99,14 @@
             }
         }
         @media (max-width: 700px) {
-            .wallp {
-                width: calc(100% - 40px); /* Full width minus margins */
-            }
             .cont {
                 flex-direction: column; /* Display images in a column on smaller screens */
                 align-items: center; /* Center items */
+            }
+            .wallp {
+                width: calc(100% - 10px); /* Full width minus smaller margins */
+                margin-left: 5px; /* Smaller margin to ensure center alignment */
+                margin-right: 5px; /* Smaller margin to ensure center alignment */
             }
         }
         footer {
