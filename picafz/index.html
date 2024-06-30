@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Picture</title>
+    <title>Picture Gallery</title>
     <style>
         @charset "utf-8";
         * {
@@ -12,21 +12,26 @@
             font-family: sans-serif;
             box-sizing: border-box;
         }
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
         .cont {
             max-width: 1200px;
             margin: auto;
-            background: transparent;
-            overflow: auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            align-content: space-around; /* Adjust alignment to space around */
         }
         .wallp {
-            margin: 5px;
-            width: calc(100% / 4 - 10px);
+            margin: 10px; /* Margin around each item */
+            width: calc(100% / 4 - 20px); /* Calculate width with margin */
             overflow: hidden;
             position: relative;
-            margin-bottom: 20px; /* Adjust this value as needed for spacing */
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
         .wallp img {
             width: 100%;
@@ -34,6 +39,7 @@
             cursor: pointer;
             transition: opacity 0.3s ease;
             opacity: 0;
+            display: block; /* Ensure images are block-level */
         }
         .wallp img.loaded {
             opacity: 1;
@@ -86,11 +92,13 @@
         }
         @media (max-width: 700px) {
             .wallp {
-                width: calc(100% / 2 - 10px);
+                width: calc(100% / 2 - 20px); /* Adjust for smaller screens */
             }
         }
         footer {
             font-size: 0.9em;
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
     <script>
