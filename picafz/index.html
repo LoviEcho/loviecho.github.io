@@ -13,10 +13,9 @@
             box-sizing: border-box;
         }
         .header {
+            min-height: 100vh;
             width: 100%;
-            height: auto;
-            background: url(bg4.jpg) no-repeat center center;
-            background-size: contain;
+            background: url(bg4.jpg) center center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,6 +67,7 @@
             align-items: center;
             z-index: 9999;
             animation: fadeIn 0.5s;
+            transition: opacity 0.5s;
         }
         .fullscreen img {
             max-width: 90%;
@@ -76,6 +76,7 @@
         }
         .fullscreen.show {
             display: flex;
+            opacity: 1;
         }
         .fullscreen img.zoom {
             transform: scale(1.1);
@@ -87,6 +88,10 @@
             font-size: 30px;
             color: white;
             cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .close-btn:hover {
+            opacity: 0.7;
         }
         @keyframes fadeIn {
             from {
