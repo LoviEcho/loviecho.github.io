@@ -40,24 +40,21 @@
             border: 1px solid rgb(162, 206, 235);
             float: left;
             width: 390px;
+            overflow: hidden;
         }
         .wallp img {
             width: 100%;
             height: auto;
+            filter: blur(10px);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+        }
+        .wallp img.loaded {
+            filter: blur(0);
         }
         .down {
             padding: 15px;
             text-align: center;
-        }
-        /* Button */
-        .down a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .down:hover {
-            border: 1px solid #03f7cefb;
-            background: #1fd5f5f1;
-            transition: 1s;
         }
         @media (max-width: 700px) {
             .nav-links ul li {
@@ -88,6 +85,20 @@
             font-size: 0.9em;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.wallp img').forEach(img => {
+                img.addEventListener('click', function () {
+                    const highResImg = new Image();
+                    highResImg.src = this.dataset.highres;
+                    highResImg.onload = () => {
+                        this.src = highResImg.src;
+                        this.classList.add('loaded');
+                    };
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <section class="header">
@@ -96,73 +107,70 @@
         </nav>
         <div class="cont">
             <div class="wallp">
-                <img src="1.jpg" alt="Image 1">
+                <img src="thumb/1.jpg" data-highres="1.jpg" alt="Image 1">
             </div>
             <div class="wallp">
-                <img src="2.png" alt="Image 2">
+                <img src="thumb/2.png" data-highres="2.png" alt="Image 2">
             </div>
             <div class="wallp">
-                <img src="3.png" alt="Image 3">
+                <img src="thumb/3.png" data-highres="3.png" alt="Image 3">
             </div>
             <div class="wallp">
-                <img src="4.jpg" alt="Image 4">
+                <img src="thumb/4.jpg" data-highres="4.jpg" alt="Image 4">
             </div>
             <div class="wallp">
-                <img src="5.jpg" alt="Image 5">
+                <img src="thumb/5.jpg" data-highres="5.jpg" alt="Image 5">
             </div>
             <div class="wallp">
-                <img src="6.jpg" alt="Image 6">
+                <img src="thumb/6.jpg" data-highres="6.jpg" alt="Image 6">
             </div>
             <div class="wallp">
-                <img src="7.jpg" alt="Image 7">
+                <img src="thumb/7.jpg" data-highres="7.jpg" alt="Image 7">
             </div>
             <div class="wallp">
-                <img src="8.jpg" alt="Image 8">
+                <img src="thumb/8.jpg" data-highres="8.jpg" alt="Image 8">
             </div>
             <div class="wallp">
-                <img src="9.jpg" alt="Image 9">
+                <img src="thumb/9.jpg" data-highres="9.jpg" alt="Image 9">
             </div>
             <div class="wallp">
-                <img src="10.jpg" alt="Image 10">
+                <img src="thumb/10.jpg" data-highres="10.jpg" alt="Image 10">
             </div>
             <div class="wallp">
-                <img src="11.png" alt="Image 11">
+                <img src="thumb/11.png" data-highres="11.png" alt="Image 11">
             </div>
             <div class="wallp">
-                <img src="13.png" alt="Image 13">
+                <img src="thumb/13.png" data-highres="13.png" alt="Image 13">
             </div>
             <div class="wallp">
-                <img src="14.jpg" alt="Image 14">
+                <img src="thumb/14.jpg" data-highres="14.jpg" alt="Image 14">
             </div>
             <div class="wallp">
-                <img src="15.jpg" alt="Image 15">
+                <img src="thumb/15.jpg" data-highres="15.jpg" alt="Image 15">
             </div>
             <div class="wallp">
-                <img src="16.jpg" alt="Image 16">
+                <img src="thumb/16.jpg" data-highres="16.jpg" alt="Image 16">
             </div>
             <div class="wallp">
-                <img src="17.jpg" alt="Image 17">
+                <img src="thumb/17.jpg" data-highres="17.jpg" alt="Image 17">
             </div>
             <div class="wallp">
-                <img src="18.jpg" alt="Image 18">
+                <img src="thumb/18.jpg" data-highres="18.jpg" alt="Image 18">
             </div>
             <div class="wallp">
-                <img src="bg1.png" alt="Image 1">
+                <img src="thumb/bg1.png" data-highres="bg1.png" alt="Image 1">
             </div>
             <div class="wallp">
-                <img src="bg2.png" alt="Image 2">
+                <img src="thumb/bg2.jpg" data-highres="bg2.jpg" alt="Image 2">
             </div>
             <div class="wallp">
-                <img src="bg3.jpg" alt="Image 3">
+                <img src="thumb/bg3.png" data-highres="bg3.png" alt="Image 3">
             </div>
             <div class="wallp">
-                <img src="bg4.jpg" alt="Image 4">
+                <img src="thumb/bg4.jpg" data-highres="bg4.jpg" alt="Image 4">
             </div>
             <div class="wallp">
-                <img src="bg5.jpg" alt="Image 5">
-            </div>
-            <div class="wallp">
-                <img src="bg6.jpg" alt="Image 6">
+                <img src="thumb/bg6.jpg" data-highres="bg6.jpg" alt="Image 6">
             </div>
         </div>
     </section>
