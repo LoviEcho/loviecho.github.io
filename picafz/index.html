@@ -39,7 +39,7 @@
             margin: 5px;
             border: 1px solid rgb(162, 206, 235);
             float: left;
-            width: 390px;
+            width: calc(100% / 4 - 10px);
             overflow: hidden;
         }
         .wallp img {
@@ -87,13 +87,14 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.wallp img').forEach(img => {
-                img.addEventListener('click', function () {
+            document.querySelectorAll('.wallp').forEach(container => {
+                container.addEventListener('click', function () {
+                    const img = this.querySelector('img');
                     const highResImg = new Image();
-                    highResImg.src = this.dataset.highres;
+                    highResImg.src = img.dataset.highres;
                     highResImg.onload = () => {
-                        this.src = highResImg.src;
-                        this.classList.add('loaded');
+                        img.src = highResImg.src;
+                        img.classList.add('loaded');
                     };
                 });
             });
