@@ -16,16 +16,17 @@
             background-color: #000; /* Warna latar belakang hitam */
             padding: 20px;
             color: #fff; /* Warna teks putih */
-            overflow-x: auto; /* Enable horizontal scrolling */
         }
         .cont {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
+            justify-content: center; /* Pusatkan konten */
         }
         .wallp {
             position: relative;
             margin: 10px; /* Margin around each item */
-            width: 200px; /* Set a fixed width for each item */
+            width: calc(100% - 40px); /* Full width minus margins */
+            max-width: 200px; /* Set a maximum width for each item */
             overflow: hidden;
             background-color: transparent; /* Hapus latar belakang putih */
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -88,13 +89,22 @@
                 opacity: 1;
             }
         }
-        @media (max-width: 700px) {
-            .cont {
-                flex-direction: column; /* Make items stack vertically */
-                align-items: center;
-            }
+        @media (min-width: 701px) {
             .wallp {
-                width: 100%; /* Make items take full width on small screens */
+                width: auto; /* Allow images to auto adjust on larger screens */
+                flex: 1 0 200px; /* Flex basis and minimum width */
+            }
+            .cont {
+                flex-direction: row; /* Display images in a row on larger screens */
+            }
+        }
+        @media (max-width: 700px) {
+            .wallp {
+                width: calc(100% - 40px); /* Full width minus margins */
+            }
+            .cont {
+                flex-direction: column; /* Display images in a column on smaller screens */
+                align-items: center; /* Center items */
             }
         }
         footer {
