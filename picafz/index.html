@@ -16,23 +16,21 @@
             background-color: #000; /* Warna latar belakang hitam */
             padding: 20px;
             color: #fff; /* Warna teks putih */
+            overflow-x: auto; /* Enable horizontal scrolling */
         }
         .cont {
-            max-width: 1200px;
-            margin: auto;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-content: space-around; /* Adjust alignment to space around */
+            white-space: nowrap;
         }
         .wallp {
             position: relative;
             margin: 10px; /* Margin around each item */
-            width: calc(100% / 4 - 20px); /* Calculate width with margin */
+            width: 200px; /* Set a fixed width for each item */
             overflow: hidden;
             background-color: transparent; /* Hapus latar belakang putih */
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
             border-radius: 5px;
+            display: inline-block; /* Ensure items are inline */
         }
         .wallp img {
             width: 100%;
@@ -89,11 +87,6 @@
             }
             to {
                 opacity: 1;
-            }
-        }
-        @media (max-width: 700px) {
-            .wallp {
-                width: calc(100% / 2 - 20px); /* Adjust for smaller screens */
             }
         }
         footer {
