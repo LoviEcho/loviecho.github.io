@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Profile Yopi Ahmad Afrizal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/x-icon" href="https://telegra.ph/file/df6553160003f71a97050.jpg">
+  <title>Yopi Ahmad Afrizal | Profile</title>
+  <script src="https://kit.fontawesome.com/6fab3a0556.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      font-size: 62.5%;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-image: url("https://telegra.ph/file/1882855c255c5bf40f42a.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+    }
+    main {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .container {
+      width: 28rem;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 2rem;
+      border: 0.1rem solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(1.5rem);
+      min-width: 25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .image {
+      width: 40%;
+      height: auto;
+      border-radius: 5rem;
+      display: block;
+      margin: 1rem auto;
+      cursor: pointer;
+    }
+    hr {
+      border-color: #673146;
+    }
+    h1, .occupation {
+      text-align: center;
+    }
+    h1 {
+      font-family: Muli, sans-serif;
+      font-weight: 700;
+      font-size: 2.3rem;
+    }
+    .occupation {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      font-family: "Space Mono", monospace;
+    }
+    .link-boxes {
+      margin: 2rem 1rem;
+      font-family: Muli, sans-serif;
+      font-weight: 700;
+      font-size: 1.4em;
+      text-transform: capitalize;
+    }
+    .link-boxes a {
+      text-decoration: none;
+      display: block;
+      color: #27213b;
+      border: 0.1rem solid #673146;
+      text-align: center;
+      margin: 0.7rem;
+      border-radius: 0.5rem;
+      padding: 0.3rem;
+      transition: all 200ms ease-in-out;
+      box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
+    }
+    .link-boxes a:hover {
+      border: 0.1rem solid #27213b;
+      background-color: #f8923b;
+      cursor: pointer;
+    }
+    .location {
+      display: block;
+      text-align: center;
+      margin: 0.7rem auto;
+      font-size: 1.2rem;
+      font-family: "Space Mono", monospace;
+      color: #27213b;
+      text-decoration: none;
+    }
+    .location:hover {
+      color: #f8923b;
+      text-decoration: underline;
+    }
+    .video-container {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .video-container audio {
+      width: 100%;
+      max-width: 100%;
+    }
+    #video {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    #effetsalju {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      /* Tetapkan z-index untuk efek salju */
+    }
+    @media only screen and (min-width: 992px) {
+      .image {
+        width: 40%;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="effetsalju"></div>
+  <main>
+    <div class="container shadow">
+      <img class="image" src="https://telegra.ph/file/715a6e5843728d98b33de.jpg" alt="Picture" loading="lazy" data-bs-toggle="modal" data-bs-target="#imageModal">
+      <h1>Yopi Ahmad Afrizal</h1>
+      <hr/>
+      <p class="occupation"><a href="#" id="ttl-link" style="text-decoration: none; color: #27213b; cursor: pointer;">12 Juli 2008</a>
+      <p class="occupation"><a href="#" id="shikimori-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Shikimori / </a><a href="#" id="kurumi-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Kurumi / </a><a href="#" id="nino-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Nino</a></p>
+      <hr/>
+      <div class="link-boxes">
+        <a class="shadow" title="game" href="/slide-number" target="_blank"><i class="fa fa-gamepad icon" aria-hidden="true"></i> Slide Number</a>
+        <a class="shadow" title="game" href="/tebakgambar" target="_blank"><i class="fa fa-gamepad icon" aria-hidden="true"></i> Tebak Gambar</a>
+        <a class="shadow" title="Subscribe to Yopi on YouTube" href="https://www.youtube.com/@loviecho_ofc" target="_blank"><i class="fab fa-youtube icon" aria-hidden="true"></i> YouTube</a>
+        <a class="shadow" title="Send a message to Yopi" href="https://wa.me/6287895943737" target="_blank"><i class="fa fa-whatsapp icon" aria-hidden="true"></i> WhatsApp</a>
+        <a class="shadow" title="Follow yopi. on Facebook" href="https://www.facebook.com/yopi.afz" target="_blank"><i class="fab fa-facebook icon" aria-hidden="true"></i> Facebook</a>
+        <a class="shadow" title="Instagram a lovi" href="https://www.instagram.com/yopi.afz/" target="_blank"><i class="fab fa-instagram icon" aria-hidden="true"></i> Instagram</a>
+        <a class="shadow" title="Follow Yopi on Pinterest" href="https://www.pinterest.com/yopi_afz" target="_blank"><i class="fab fa-pinterest icon" aria-hidden="true"></i> Pinterest</a>
+        <a class="shadow" title="Join Yopi on Telegram" href="https://t.me/yopi_afz" target="_blank"><i class="fab fa-telegram icon" aria-hidden="true"></i> Telegram</a>
+        <a class="shadow" title="Follow LoviEcho_ofc on Yopi" href="https://www.tiktok.com/@yopi.afz" target="_blank"><i class="fab fa-tiktok icon" aria-hidden="true"></i> TikTok</a>
+        <a class="shadow" title="Follow LoviEcho_ofc on Threads" href="https://www.threads.net/@yopi.afz" target="_blank"><i class="fab fa-threads icon" aria-hidden="true"></i> Threads</a>
+        <a class="shadow" title="Send a mail to Siputzx" href="mailto:yopi120708@gmail.com" target="_blank"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> E-mail</a>
+      </div>
+
+      <div class="video-container">
+        <audio id="audio" controls>
+          <source src="ep3le-tiktokaud.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <hr/>
+      <a href="https://www.google.com/maps/search/?api=1&query=Lampung%2CIndonesia" target="_blank" class="location"><i class="fa fa-map-marker icon" aria-hidden="true"></i> Lampung, Indonesia</a>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Picture</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="modalImage" alt="Gambar Shikimori" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Modal and Image Handling
+      const shikimoriLink = document.getElementById('shikimori-link');
+      const kurumiLink = document.getElementById('kurumi-link');
+      const ninoLink = document.getElementById('nino-link');
+      const ttlLink = document.getElementById('ttl-link');
+      const modalImage = document.getElementById('modalImage');
+      const modal = new bootstrap.Modal(document.getElementById('imageModal'), {});
+
+      const imageElement = document.querySelector('.image');
+      imageElement.addEventListener('click', function () {
+        modalImage.src = imageElement.src;
+        modal.show();
+      });
+      ttlLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const imageUrl = 'https://telegra.ph/file/137a82f08e4156098aa4f.jpg';
+        modalImage.src = imageUrl;
+        modal.show();
+      });
+      shikimoriLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const imageUrl = 'https://telegra.ph/file/57370ac32767e70517091.jpg';
+        modalImage.src = imageUrl;
+        modal.show();
+      });
+      kurumiLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const imageUrl = 'https://telegra.ph/file/9f7fbe2e3aff74e932570.jpg';
+        modalImage.src = imageUrl;
+        modal.show();
+      });
+      ninoLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const imageUrl = 'https://telegra.ph/file/635bfbef1c65c9fa231cb.jpg';
+        modalImage.src = imageUrl;
+        modal.show();
+      });
+    });
+  </script>
+</body>
+</html>
