@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest Image Search</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+        .search-container button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-left: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            overflow-y: auto;
+            max-height: 80vh; /* Limit the height of the gallery for scrolling */
+        }
+        .image-item {
+            flex: 0 1 calc(33.33% - 20px);
+            max-width: calc(33.33% - 20px);
+            box-sizing: border-box;
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 2px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="searchQuery" placeholder="Search for images...">
+        <button onclick="searchImages()">Search</button>
+    </div>
+    <div class="image-gallery" id="imageGallery"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/g-i-s@2.1.7/index.js"></script>
+    <script>
+        const pinterest = async (query) => {
+            return new Promise((resolve, reject) => {
+                let err = { status: 404, message: "Terjadi kesalahan" };
+                gis({ searchTerm: query + ' site:id.pinterest.com' }, (er, res) => {
+                    if (er) return reject(err);
+                    let hasil = {
+                        status: 200,
+                        creator: 'yopi.afz',
+                        result: []
+                    };
+                    res.forEach(x => hasil.result.push(x.url));
+                    resolve(hasil);
+                });
+            });
+        };
+
+        async function searchImages() {
+            const query = document.getElementById('searchQuery').value;
+            if (!query) return;
+
+            const imageGallery = document.getElementById('imageGallery');
+            imageGallery.innerHTML = 'Loading...';
+
+            try {
+                const result = await pinterest(query);
+                imageGallery.innerHTML = ''; // Clear previous results
+                result.result.forEach(url => {
+                    const imgDiv = document.createElement('div');
+                    imgDiv.className = 'image-item';
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = 'Image';
+                    imgDiv.appendChild(img);
+                    imageGallery.appendChild(imgDiv);
+                });
+            } catch (error) {
+                imageGallery.innerHTML = 'An error occurred while searching for images.';
+            }
+        }
+    </script>
+</body>
+</html>
