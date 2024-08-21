@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah Al-Mulk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .content {
+            font-size: 16px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Surah Al-Mulk (67:1-30)</h1>
+
+    <button onclick="adjustFontSize(2)">Perbesar Teks</button>
+    <button onclick="adjustFontSize(-2)">Perkecil Teks</button>
+
+    <div class="content" id="text-content">
+        <p>1. Tabāraka-lladhī biyadihi-l-mulku wa huwa 'alā kulli shay'in qadīr.</p>
+        <p>2. Alladhī khalaqa-l-mawta wa-l-ḥayāta liyabluwakum ayyukum aḥsanu 'amala, wa huwa-l-'azīzu-l-ghafūr.</p>
+        <p>3. Alladhī khalaqa sab'a samāwātin ṭibāqa, mā tarā fī khalqi-r-raḥmāni min tafāwutin farji'i-l-baṣara hal tarā min fuṭūr.</p>
+        <p>4. Thumma rji'i-l-baṣara karrataini yanqalib ilayka-l-baṣaru khāsian wa huwa ḥasīr.</p>
+        <p>5. Walaqad zayyannā-s-samā'a-d-dunyā bimaṣābīḥa wa ja'alnāhā rujūman li-sh-shayāṭīn wa a'tadnā lahum 'adhāba-s-sa'īr.</p>
+        <p>6. Wa lilladhīna kafarū bi rabbihim 'adhābu jahannam wa bi'sa-l-maṣīr.</p>
+        <p>7. Idhā ulqū fīhā sami'ū lahā shahiqan wa hiya tafūr.</p>
+        <p>8. Takādu tamayyazu min-al-ghayẓ, kullamā ulqiya fīhā fawjun sa'alahum khazanatuhā alam ya'tikum nadhīr.</p>
+        <p>9. Qālū balā qad jā'anā nadhīrun fakadhdhabnā wa qulna mā nazzala-l-lāhu min shay'in in antum illā fī ḍalālin kabīr.</p>
+        <p>10. Wa qālū law kunnā nasma'u aw na'qilu mā kunnā fī aṣḥābi-s-sa'īr.</p>
+        <p>11. Fa'tarafū bi dhanbihim fa-suḥqan li aṣḥābi-s-sa'īr.</p>
+        <p>12. Inna-lladhīna yakhshawna rabbahum bi-l-ghaybi lahum maghfiratun wa ajrun kabīr.</p>
+        <p>13. Wa asirrū qawlakum awi-jharū bihī innahu 'alīmun bi dhāti-ṣ-ṣudūr.</p>
+        <p>14. Alā ya'lamu man khalaqa wa huwa-l-laṭīfu-l-khabīr.</p>
+        <p>15. Huwa-lladhī ja'ala lakumu-l-arḍa dhalūlan famshū fī manākibiha wa kulū min rizqihī wa ilayhi-n-nushūr.</p>
+        <p>16. A-amintum man fī-s-samā'i an yakhsifa bikumu-l-arḍa fa-idhā hiya tamūr.</p>
+        <p>17. Am amintum man fī-s-samā'i an yursila 'alaykum ḥāṣiban fasata'lamūna kayfa nadhīr.</p>
+        <p>18. Walaqad kadhdhab-alladhīna min qablihim fakayfa kāna nakīr.</p>
+        <p>19. A-walam yaraw ilā-ṭ-ṭayri fawqahum ṣāffātiw wa yaqbiḍna mā yumsikuhunna illā-r-raḥmān innahu bi kulli shay'in baṣīr.</p>
+        <p>20. Amman hādhā-lladhī huwa jundun lakum yanṣurukum min dūni-r-raḥmān in-i-l-kāfirūna illā fī ghurūr.</p>
+        <p>21. Amman hādhā-lladhī yarzuqukum in amsaka rizqah bal lajjū fī 'utuwwin wa nufūr.</p>
+        <p>22. Afaman yamshī mukibban 'alā wajhihī ahdā amman yamshī sawiyyan 'alā ṣirāṭin mustaqīm.</p>
+        <p>23. Qul huwa-lladhī ansha'akum wa ja'ala lakumu-s-sam'a wa-l-abṣāra wa-l-af'ida qalīlam mā tashkurūn.</p>
+        <p>24. Qul huwa-lladhī dhara'akum fī-l-arḍi wa ilayhi tuḥsharūn.</p>
+        <p>25. Wa yaqūlūna matā hādhā-l-wa'du in kuntum ṣādiqīn.</p>
+        <p>26. Qul innamā-l-'ilmu 'inda-llāhi wa innamā anā nadhīrun mubīn.</p>
+        <p>27. Falammā ra'awhu zulfatan sī'at wujūhu-lladhīna kafarū wa qīla hādhā-lladhī kuntum bihi tadda'ūn.</p>
+        <p>28. Qul arā'aytum in ahlakanīya-llāhu wa man ma'iya aw raḥimanā faman yujīru-l-kāfirīna min 'adhābin alīm.</p>
+        <p>29. Qul huwa-r-raḥmān āmannā bihī wa 'alayhi tawakkalnā fasata'lamūna man huwa fī ḍalālin mubīn.</p>
+        <p>30. Qul arā'aytum in aṣbaḥa mā'ukum ghawran faman ya'tīkum bimā'in ma'īn.</p>
+    </div>
+
+    <script>
+        function adjustFontSize(change) {
+            const content = document.getElementById('text-content');
+            let currentSize = parseInt(window.getComputedStyle(content).fontSize);
+            content.style.fontSize = (currentSize + change) + 'px';
+        }
+    </script>
+
+</body>
+</html>
