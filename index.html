@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Styles tetap sama seperti yang diberikan */
     :root {
       font-size: 62.5%;
     }
@@ -148,7 +149,7 @@
   <main>
     <div class="container shadow">
       <img class="image" src="https://telegra.ph/file/072ce534b56e50e7d5e8d.jpg" alt="Picture" loading="lazy" data-bs-toggle="modal" data-bs-target="#imageModal">
-      <h1>Yopi Ahmad Afrizal</h1>
+      <h1 class="occupation"><a href="#" id="text-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Yopi Ahmad Afrizal</a></h1>
       <hr/>
       <p class="occupation"><a href="#" id="ttl-link" style="text-decoration: none; color: #27213b; cursor: pointer;">12 Juli 2008</a>
       <p class="occupation"><a href="#" id="shikimori-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Shikimori / </a><a href="#" id="kurumi-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Kurumi / </a><a href="#" id="nino-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Nino</a></p>
@@ -189,11 +190,38 @@
         <div class="modal-body">
           <img src="" id="modalImage" alt="Gambar Shikimori" class="img-fluid">
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageModalLabel">Pesan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="font-size: 1.4rem;">
+          Ketika kamu menyukai bunga, kamu hanya memetiknya, tetapi ketika kamu mencintai bunga kamu menyiraminya setiap hari.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script>
+    document.getElementById('text-link').addEventListener('click', function () {
+      var myModal = new bootstrap.Modal(document.getElementById('messageModal'), {
+        keyboard: true
+      });
+      myModal.show();
+    });
     document.addEventListener('DOMContentLoaded', function () {
       // Modal and Image Handling
       const shikimoriLink = document.getElementById('shikimori-link');
@@ -216,19 +244,19 @@
       });
       shikimoriLink.addEventListener('click', function (event) {
         event.preventDefault();
-        const imageUrl = 'https://telegra.ph/file/57370ac32767e70517091.jpg';
+        const imageUrl = 'https://telegra.ph/file/dc8ea905d749db19c0630.jpg';
         modalImage.src = imageUrl;
         modal.show();
       });
       kurumiLink.addEventListener('click', function (event) {
         event.preventDefault();
-        const imageUrl = 'https://telegra.ph/file/9f7fbe2e3aff74e932570.jpg';
+        const imageUrl = 'https://telegra.ph/file/ae08b963e247d85c1db2e.jpg';
         modalImage.src = imageUrl;
         modal.show();
       });
       ninoLink.addEventListener('click', function (event) {
         event.preventDefault();
-        const imageUrl = 'https://telegra.ph/file/635bfbef1c65c9fa231cb.jpg';
+        const imageUrl = 'https://telegra.ph/file/cfcf068c6b582be1b406d.jpg';
         modalImage.src = imageUrl;
         modal.show();
       });
