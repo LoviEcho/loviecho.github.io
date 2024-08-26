@@ -3,142 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Installation Guide</title>
+    <title>Simple Page</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            padding: 20px;
             color: #333;
         }
-
-        h1, h2 {
-            color: #333;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 0.5em;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        blockquote {
-            background-color: #f9f9f9;
-            border-left: 5px solid #ccc;
-            padding: 10px 20px;
-            margin: 20px 0;
-            color: #555;
-        }
-
-        blockquote strong {
-            color: #e74c3c;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .code-container {
-            position: relative;
-            background-color: #1e1e1e;
-            color: #c7c7c7;
-            padding: 5px 10px; /* Mengurangi padding untuk tampilan lebih rapat */
-            border-radius: 8px;
-            margin: 10px 0; /* Mengurangi margin untuk menghemat ruang */
-            font-family: 'Courier New', Courier, monospace;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            display: inline-block;
-        }
-
-        .code-container code {
-            display: block;
-            font-size: 14px;
-            margin: 0; /* Menghilangkan margin untuk tampilan lebih rapat */
-        }
-
-        .copy-button {
-            position: absolute;
-            top: 5px; /* Mengurangi jarak dari atas */
-            right: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 3px 8px; /* Mengurangi padding untuk tombol lebih kecil */
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 12px;
-            transition: background-color 0.3s;
-        }
-
-        .copy-button:hover {
-            background-color: #45a049;
+        .message {
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <h1>Theme Installation</h1>
-    <p>Welcome to the <strong>Theme Installation Guide</strong>. Please follow the steps below to install the theme on your system.</p>
-    <blockquote>
-        <strong>⚠️ Catatan Penting:</strong><br><br>
-        <strong>JANGAN DIJUAL BELIKAN YE BWANG!!!</strong><br>
-        <strong>Code Token Chat Wa Click Link Dibawah</strong><br>
-        <strong>Price 10k Permanen </strong> <a href="https://wa.me/6287895943737" target="_blank">WhatsApp Owner</a>
-    </blockquote>
-
-    <h2>🛠️ Installation Command</h2>
-
-    <p><strong>Bahan Install Theme dan lainya</strong></p>
-    <div class="code-container">
-        <code id="bash-code">bash <(curl https://yopi.azl.my.id/theme/install.sh)</code>
-        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
-    </div>
-
-    <p><strong>Bahan Install Panel</strong></p>
-    <div class="code-container">
-        <code id="bash-code">bash <(curl -s https://pterodactyl-installer.se)</code>
-        <button class="copy-button" onclick="copyToClipboard2()">Copy</button>
-    </div>
-
-    <script>
-        function copyToClipboard() {
-            const code = document.querySelectorAll('#bash-code')[0].textContent;
-            const textarea = document.createElement('textarea');
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('Code copied to clipboard!');
-        }
-
-        function copyToClipboard2() {
-            const code = document.querySelectorAll('#bash-code')[1].textContent;
-            const textarea = document.createElement('textarea');
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('Code copied to clipboard!');
-        }
-    </script>
-
+    <div class="message">Nyari Apa Bang??</div>
 </body>
 </html>
