@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terjemahan Iwak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Terjemahan Iwak</h1>
+    <textarea id="inputText" placeholder="Masukkan teks di sini..."></textarea>
+    <br>
+    <button onclick="translateToIwak()">Terjemahkan ke Bahasa Iwak</button>
+    <button onclick="reverseTranslateFromIwak()">Terjemahkan ke Bahasa Asli</button>
+    <br>
+    <textarea id="outputText" readonly placeholder="Hasil terjemahan..."></textarea>
+    <br>
+    <button id="copyButton" onclick="copyText()" disabled>Salin Teks</button>
+
+    <script>
+        const translateMap = {
+            'a': 'bluk',
+            'b': 'bul',
+            'c': 'bulk',
+            'd': 'blub',
+            'e': 'blukbluk',
+            'f': 'blukbul',
+            'g': 'blukbulk',
+            'h': 'blukblub',
+            'i': 'bulbluk',
+            'j': 'bulbul',
+            'k': 'bulbulk',
+            'l': 'bulblub',
+            'm': 'bulkbluk',
+            'n': 'bulkbul',
+            'o': 'bulkbulk',
+            'p': 'bulkblub',
+            'q': 'blubbluk',
+            'r': 'blubbul',
+            's': 'blubbulk',
+            't': 'blubblub',
+            'u': 'blukblukbluk',
+            'v': 'blukblukbul',
+            'w': 'blukblukbulk',
+            'x': 'blukblukbulb',
+            'y': 'blukbulbluk',
+            'z': 'blukbulbul'
+        };
+
+        const reverseTranslateMap = {
+            'bluk': 'a',
+            'bul': 'b',
+            'bulk': 'c',
+            'blub': 'd',
+            'blukbluk': 'e',
+            'blukbul': 'f',
+            'blukbulk': 'g',
+            'blukblub': 'h',
+            'bulbluk': 'i',
+            'bulbul': 'j',
+            'bulbulk': 'k',
+            'bulblub': 'l',
+            'bulkbluk': 'm',
+            'bulkbul': 'n',
+            'bulkbulk': 'o',
+            'bulkblub': 'p',
+            'blubbluk': 'q',
+            'blubbul': 'r',
+            'blubbulk': 's',
+            'blubblub': 't',
+            'blukblukbluk': 'u',
+            'blukblukbul': 'v',
+            'blukblukbulk': 'w',
+            'blukblukbulb': 'x',
+            'blukbulbluk': 'y',
+            'blukbulbul': 'z'
+        };
+
+        function translateToIwak() {
+            let input = document.getElementById("inputText").value;
+            let result = '';
+
+            for (let i = 0; i < input.length; i++) {
+                const char = input[i].toLowerCase();
+                if (char === ' ') {
+                    result += '    '; // Tambahkan 4 spasi untuk setiap spasi
+                } else if (translateMap[char]) {
+                    result += translateMap[char] + ' ';
+                } else {
+                    result += char; // Jika bukan huruf A-Z, tetapkan karakter asli
+                }
+            }
+
+            document.getElementById("outputText").value = result.trim();
+            enableCopyButton();
+        }
+
+        function reverseTranslateFromIwak() {
+            let input = document.getElementById("outputText").value;
+            let words = input.split('    '); // Memisahkan dengan 4 spasi
+            let result = '';
+
+            for (let word of words) {
+                let codes = word.split(' ');
+                for (let code of codes) {
+                    if (reverseTranslateMap[code]) {
+                        result += reverseTranslateMap[code];
+                    } else {
+                        result += code; // Jika tidak ditemukan di peta, tambahkan karakter asli
+                    }
+                }
+                result += ' '; // Menambahkan kembali spasi antar kata
+            }
+
+            document.getElementById("outputText").value = result.trim();
+            enableCopyButton();
+        }
+
+        function copyText() {
+            let outputText = document.getElementById("outputText");
+            outputText.select();
+            document.execCommand("copy");
+        }
+
+        function enableCopyButton() {
+            document.getElementById("copyButton").disabled = false;
+        }
+    </script>
+</body>
+      </html>
