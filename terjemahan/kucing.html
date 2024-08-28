@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terjemahan Kucing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Terjemahan Kucing</h1>
+    <textarea id="inputText" placeholder="Masukkan teks di sini..."></textarea>
+    <br>
+    <button onclick="translateToCat()">Terjemahkan ke Bahasa Kucing</button>
+    <button onclick="reverseTranslateFromCat()">Terjemahkan ke Bahasa Asli</button>
+    <br>
+    <textarea id="outputText" readonly placeholder="Hasil terjemahan..."></textarea>
+    <br>
+    <button id="copyButton" onclick="copyText()" disabled>Salin Teks</button>
+
+    <script>
+        const catTranslateMap = {
+            'a': 'mew',
+            'b': 'meao',
+            'c': 'meow',
+            'd': 'meu',
+            'e': 'mwew',
+            'f': 'meaw',
+            'g': 'mio',
+            'h': 'mewmew',
+            'i': 'mewmeao',
+            'j': 'mewmeow',
+            'k': 'mewmeu',
+            'l': 'mewmwew',
+            'm': 'meawmeow',
+            'n': 'meuio',
+            'o': 'meowmeao',
+            'p': 'meameow',
+            'q': 'meomwew',
+            'r': 'meomeu',
+            's': 'mewmeomeow',
+            't': 'meowmwew',
+            'u': 'meumew',
+            'v': 'meomeao',
+            'w': 'mewmeameow',
+            'x': 'meameumeo',
+            'y': 'meowmeow',
+            'z': 'meumeow'
+        };
+
+        const reverseCatTranslateMap = {
+            'mew': 'a',
+            'meao': 'b',
+            'meow': 'c',
+            'meu': 'd',
+            'mwew': 'e',
+            'meaw': 'f',
+            'mio': 'g',
+            'mewmew': 'h',
+            'mewmeao': 'i',
+            'mewmeow': 'j',
+            'mewmeu': 'k',
+            'mewmwew': 'l',
+            'meawmeow': 'm',
+            'meuio': 'n',
+            'meowmeao': 'o',
+            'meameow': 'p',
+            'meomwew': 'q',
+            'meomeu': 'r',
+            'mewmeomeow': 's',
+            'meowmwew': 't',
+            'meumew': 'u',
+            'meomeao': 'v',
+            'mewmeameow': 'w',
+            'meameumeo': 'x',
+            'meowmeow': 'y',
+            'meumeow': 'z'
+        };
+
+        function translateToCat() {
+            let input = document.getElementById("inputText").value;
+            let result = '';
+
+            for (let i = 0; i < input.length; i++) {
+                const char = input[i].toLowerCase();
+                if (char === ' ') {
+                    result += '    '; // Tambahkan 4 spasi untuk setiap spasi
+                } else if (catTranslateMap[char]) {
+                    result += catTranslateMap[char] + ' ';
+                } else {
+                    result += char; // Jika bukan huruf A-Z, tetapkan karakter asli
+                }
+            }
+
+            document.getElementById("outputText").value = result.trim();
+            enableCopyButton();
+        }
+
+        function reverseTranslateFromCat() {
+            let input = document.getElementById("outputText").value;
+            let words = input.split('    '); // Memisahkan dengan 4 spasi
+            let result = '';
+
+            for (let word of words) {
+                let codes = word.split(' ');
+                for (let code of codes) {
+                    if (reverseCatTranslateMap[code]) {
+                        result += reverseCatTranslateMap[code];
+                    } else {
+                        result += code; // Jika tidak ditemukan di peta, tambahkan karakter asli
+                    }
+                }
+                result += ' '; // Menambahkan kembali spasi antar kata
+            }
+
+            document.getElementById("outputText").value = result.trim();
+            enableCopyButton();
+        }
+
+        function copyText() {
+            let outputText = document.getElementById("outputText");
+            outputText.select();
+            document.execCommand("copy");
+        }
+
+        function enableCopyButton() {
+            document.getElementById("copyButton").disabled = false;
+        }
+    </script>
+</body>
+</html>
