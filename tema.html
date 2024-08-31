@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,23 +13,31 @@
             background-color: #f4f4f4;
             padding: 20px;
             color: #333;
+            margin: 0;
+            padding-bottom: 50px; /* Adjusted to ensure footer is visible */
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #333;
         }
+
         h1 {
             font-size: 2.2em;
             margin-bottom: 0.5em;
         }
+
         h2 {
             font-size: 1.8em;
             margin-top: 1.5em;
             margin-bottom: 0.5em;
         }
+
         p {
             font-size: 1.1em;
             line-height: 1.6;
         }
+
         blockquote {
             background-color: #f9f9f9;
             border-left: 5px solid #ccc;
@@ -36,17 +45,21 @@
             margin: 20px 0;
             color: #555;
         }
+
         blockquote strong {
             color: #e74c3c;
         }
+
         a {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .code-container {
             position: relative;
             background-color: #1e1e1e;
@@ -55,83 +68,152 @@
             border-radius: 10px;
             margin: 5px 0;
             font-family: 'Courier New', Courier, monospace;
-            white-space: nowrap; /* Hanya satu baris */
-            overflow-x: auto; /* Scroll horizontal jika diperlukan */
-            max-width: 100%; /* Pastikan tidak melebihi lebar kontainer */
+            white-space: nowrap;
+            overflow-x: auto;
+            max-width: 100%;
             display: inline-block;
         }
+
         .code-container code {
-            display: inline; /* Inline untuk satu baris */
+            display: inline;
             font-size: 15px;
             margin: 0;
         }
+
         .code-wrapper {
             position: relative;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .token-display {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .password-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .password-section input {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .password-section button {
+            flex-shrink: 0;
+        }
+
     </style>
 </head>
+
 <body>
-    <h1>Theme Installation</h1>
-    <p>Welcome to the <strong>Theme Installation Guide</strong>. Please follow the steps below to install the theme on your system.</p>
-    <blockquote>
-        <strong>⚠️ Catatan Penting:</strong><br><br>
-        <strong>JANGAN DIJUAL BELIKAN YE BWANG!!!</strong><br>
-        <strong>Code <a id="text-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Token</a></strong>
-        <strong> Chat Wa Click Link Dibawah</strong><br>
-        <strong>Price 10k Permanen </strong> <a href="https://wa.me/6287895943737" target="_blank">WhatsApp Owner</a>
-    </blockquote>
+    <div class="container">
+        <div id="password-section" class="password-section">
+            <input type="password" id="passwordInput" class="form-control" placeholder="Masukkan password">
+            <button class="btn btn-primary" onclick="checkPassword()">Check</button>
+        </div>
 
-    <h2>🛠️ Installation Command</h2>
+        <h1>Theme Installation</h1>
+        <p>Welcome to the <strong>Theme Installation Guide</strong>. Please follow the steps below to install the theme on your system.</p>
+        <blockquote>
+            <strong>⚠️ Catatan Penting:</strong><br><br>
+            <strong> • Jangan Dijual Belikan</strong><br>
+            <strong> • Jika Error Chat Owner</strong><br>
+            <strong> • Boleh Untuk Jasa Install Theme</strong><br>
+            <strong> • Dilarang Menyebar Code Bash</strong><br>
+            <strong> • Web Ini Restart = Password Diganti</strong><br>
+            <strong> • Jangan Disebar Kalau Sudah Membeli</strong><br><br>
+            <strong><a id="text-link" style="text-decoration: none; color: #27213b; cursor: pointer;">Code Token</a></strong>
+            <strong> Chat Wa Click Dibawah Ini</strong><br>
+            <strong>Price 10k Permanen </strong> <a href="https://wa.me/6287895943737" target="_blank">WhatsApp Owner</a>
+        </blockquote>
 
-    <p><strong>Bahan Install Theme dan lainya</strong></p>
-    <div class="code-wrapper">
-        <div class="code-container">
-            <code id="bash-code">bash <(curl https://yopi.azl.my.id/theme/install.sh)</code>
+        <div class="token-display" id="token-display">
+            <h2>🔑 Token</h2>
+            <p>>>>  YovAzl</p>
+        </div>
+
+        <div class="hidden" id="install-section">
+            <h2>🛠️ Installation Command</h2>
+
+            <p><strong>Bahan Install Theme dan lainya</strong></p>
+            <div class="code-wrapper">
+                <div class="code-container" id="theme-code">
+                    <code>bash <(curl https://yopi.azl.my.id/theme/shimori.sh)</code>
+                </div>
+            </div>
+
+            <p><strong>Bahan Install Panel</strong></p>
+            <div class="code-wrapper">
+                <div class="code-container" id="panel-code">
+                    <code>bash <(curl -s https://pterodactyl-installer.se)</code>
+                </div>
+            </div>
         </div>
     </div>
 
-    <p><strong>Bahan Install Panel</strong></p>
-    <div class="code-wrapper">
-        <div class="code-container">
-            <code id="bash-code">bash <(curl -s https://pterodactyl-installer.se)</code>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="messageModalLabel">Pesan</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="font-size: 1.4rem;">
-            Token: YopiAzl
-          </div>
-        </div>
-      </div>
-    </div>
-  
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <script>
+        const originalPassword = "Yopi1900"; // Password awal
+        const passwordKey = "storedPassword"; // Key untuk menyimpan status di localStorage
+
+        function init() {
+            const savedPassword = localStorage.getItem(passwordKey);
+            if (savedPassword === originalPassword) {
+                // Jika password sudah dimasukkan sebelumnya, sembunyikan input password
+                document.getElementById('password-section').style.display = 'none';
+                document.getElementById('install-section').classList.remove('hidden');
+                document.getElementById('token-display').style.display = 'block';
+            }
+        }
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const password = passwordInput.value;
+            if (password === originalPassword) {
+                // Simpan status password ke localStorage
+                localStorage.setItem(passwordKey, originalPassword);
+                // Hapus tampilan input password dan tombol Check
+                document.getElementById('password-section').style.display = 'none';
+                // Tampilkan semua teks kode dan token
+                document.getElementById('install-section').classList.remove('hidden');
+                document.getElementById('token-display').style.display = 'block';
+                // Kosongkan input password
+                passwordInput.value = '';
+            } else {
+                alert("Password salah!");
+            }
+        }
+
+        function resetPassword() {
+            localStorage.removeItem(passwordKey);
+            document.getElementById('password-section').style.display = 'flex';
+            document.getElementById('install-section').classList.add('hidden');
+            document.getElementById('token-display').style.display = 'none';
+        }
+
         document.getElementById('text-link').addEventListener('click', function () {
-            var password = prompt("Masukkan password untuk melihat token:");
-            var correctPassword = "Yopi190"; // Ganti dengan password yang diinginkan
-            if (password === correctPassword) {
-                var myModal = new bootstrap.Modal(document.getElementById('messageModal'), {
-                    keyboard: true
-                });
-                myModal.show();
+            const password = prompt("Masukkan password untuk melihat token:");
+            if (password === originalPassword) {
+                document.getElementById('token-display').style.display = 'block';
             } else {
                 alert("Password salah!");
             }
         });
+
+        // Initialize the page based on saved password status
+        init();
     </script>
 </body>
+
 </html>
