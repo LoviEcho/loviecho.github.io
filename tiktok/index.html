@@ -3,45 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create TikTok Link</title>
+    <title>Redirect to TikTok</title>
     <script>
-        function generateLink() {
-            const inputLink = document.getElementById('tiktok-link').value.trim();
-            
-            // Ekstrak ID TikTok dari link
-            const match = inputLink.match(/https:\/\/vt\.tiktok\.com\/([a-zA-Z0-9]+)/);
-            if (match && match[1]) {
-                const tiktokId = match[1];
-                const generatedLink = `https://yopi.azl.my.id/tiktok/${tiktokId}`;
-                
-                // Tampilkan hasil link
-                document.getElementById('result').value = generatedLink;
-                document.getElementById('result-container').style.display = 'block';
-            } else {
-                alert('Masukkan link TikTok yang valid.');
-            }
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mendapatkan path dari URL, contoh: '/tiktok/ZS2Pqy4gv'
+            const path = window.location.pathname;
 
-        function copyToClipboard() {
-            const resultField = document.getElementById('result');
-            resultField.select();
-            resultField.setSelectionRange(0, 99999); // Untuk perangkat mobile
-            document.execCommand('copy');
-            alert('Link berhasil disalin!');
+            // Mengecek apakah ada ID TikTok di URL
+            const pathSegments = path.split('/');
+            const tiktokId = pathSegments[pathSegments.length - 1];
+
+            if (tiktokId && tiktokId !== "tiktok") {
+                // Jika ada ID, arahkan ke URL TikTok
+                const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
+                window.location.href = tiktokUrl;
+            } else {
+                // Jika tidak ada ID, tampilkan input untuk ID TikTok
+                document.getElementById('input-form').style.display = 'block';
+            }
+        });
+
+        function redirectToTikTok() {
+            const inputId = document.getElementById('tiktok-id').value.trim();
+            if (inputId) {
+                window.location.href = `/tiktok/${inputId}`;
+            } else {
+                alert('Please enter a valid TikTok ID.');
+            }
         }
     </script>
 </head>
 <body>
-    <!-- Form Input Link TikTok -->
-    <h2>Masukkan Link TikTok</h2>
-    <input type="text" id="tiktok-link" placeholder="https://vt.tiktok.com/..." style="width: 300px;" />
-    <button onclick="generateLink()">Click</button>
-
-    <!-- Hasil Link yang Dihasilkan -->
-    <div id="result-container" style="display: none; margin-top: 20px;">
-        <h3>Hasil Link:</h3>
-        <input type="text" id="result" readonly style="width: 300px;" />
-        <button onclick="copyToClipboard()">Salin</button>
+    <!-- Form Input ID TikTok -->
+    <div id="input-form" style="display: none;">
+        <h2>Enter TikTok ID</h2>
+        <input type="text" id="tiktok-id" placeholder="Enter TikTok ID" />
+        <button onclick="redirectToTikTok()">Go</button>
     </div>
+    <p id="redirecting" style="display: none;">Redirecting to TikTok...</p>
 </body>
 </html>
