@@ -24,11 +24,35 @@
             // Mendapatkan nilai dari input pengguna
             const inputId = document.getElementById('tiktok-id').value.trim();
             if (inputId) {
-                // Arahkan ke URL dengan parameter query ID TikTok baru
-                window.location.href = `/tiktok?id=${inputId}`;
+                // Tampilkan URL dengan parameter query ID TikTok
+                const resultUrl = `${window.location.origin}/tiktok?id=${inputId}`;
+                document.getElementById('result-url').value = resultUrl;
+                document.getElementById('result-container').style.display = 'block';
             } else {
                 alert('Masukkan ID TikTok yang valid.');
             }
+        }
+
+        async function pasteTikTokId() {
+            try {
+                const text = await navigator.clipboard.readText();
+                document.getElementById('tiktok-id').value = text.trim();
+            } catch (err) {
+                alert('Gagal menempel dari clipboard. Pastikan izin clipboard diaktifkan.');
+            }
+        }
+
+        function copyResultUrl() {
+            const resultUrlField = document.getElementById('result-url');
+            resultUrlField.select();
+            resultUrlField.setSelectionRange(0, 99999); // Untuk perangkat mobile
+            navigator.clipboard.writeText(resultUrlField.value)
+                .then(() => {
+                    alert('URL berhasil disalin ke clipboard!');
+                })
+                .catch((err) => {
+                    alert('Gagal menyalin URL. Silakan coba lagi.');
+                });
         }
     </script>
 </head>
@@ -37,7 +61,15 @@
     <div id="input-form" style="display: none;">
         <h2>Masukkan ID TikTok</h2>
         <input type="text" id="tiktok-id" placeholder="Masukkan ID TikTok" />
-        <button onclick="redirectToTikTok()">Go</button>
+        <button onclick="pasteTikTokId()">Paste</button>
+        <button onclick="redirectToTikTok()">Click</button>
+    </div>
+    
+    <!-- Container untuk hasil URL dan tombol salin -->
+    <div id="result-container" style="display: none; margin-top: 20px;">
+        <h3>URL Hasil:</h3>
+        <input type="text" id="result-url" readonly style="width: 80%;" />
+        <button onclick="copyResultUrl()">Copy</button>
     </div>
 </body>
 </html>
