@@ -13,10 +13,11 @@
             const pathSegments = path.split('/');
             const tiktokId = pathSegments[pathSegments.length - 1];
 
-            if (tiktokId && tiktokId !== "tiktok") {
+            // Memastikan ID TikTok valid dan berbeda dari "tiktok"
+            if (tiktokId && tiktokId !== "" && tiktokId !== "tiktok") {
                 // Jika ada ID, arahkan ke URL TikTok
                 const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
-                window.location.href = tiktokUrl;
+                window.location.replace(tiktokUrl); // Menggunakan replace untuk pengalihan
             } else {
                 // Jika tidak ada ID, tampilkan input untuk ID TikTok
                 document.getElementById('input-form').style.display = 'block';
