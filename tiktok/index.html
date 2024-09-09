@@ -9,7 +9,7 @@
             // Mendapatkan path dari URL, contoh: '/tiktok/ZS2Pqy4gv'
             const path = window.location.pathname;
 
-            // Mengecek apakah ada ID TikTok di URL
+            // Mengecek apakah ada ID TikTok di URL dengan memisahkan path berdasarkan '/'
             const pathSegments = path.split('/');
             const tiktokId = pathSegments[pathSegments.length - 1];
 
@@ -17,7 +17,7 @@
             if (tiktokId && tiktokId !== "" && tiktokId !== "tiktok") {
                 // Jika ada ID, arahkan ke URL TikTok
                 const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
-                window.location.replace(tiktokUrl); // Menggunakan replace untuk pengalihan
+                window.location.href = tiktokUrl; // Gunakan href untuk pengalihan sederhana
             } else {
                 // Jika tidak ada ID, tampilkan input untuk ID TikTok
                 document.getElementById('input-form').style.display = 'block';
@@ -27,9 +27,10 @@
         function redirectToTikTok() {
             const inputId = document.getElementById('tiktok-id').value.trim();
             if (inputId) {
+                // Mengarahkan ke URL dengan ID TikTok baru
                 window.location.href = `/tiktok/${inputId}`;
             } else {
-                alert('Please enter a valid TikTok ID.');
+                alert('Silakan masukkan ID TikTok yang valid.');
             }
         }
     </script>
@@ -37,10 +38,10 @@
 <body>
     <!-- Form Input ID TikTok -->
     <div id="input-form" style="display: none;">
-        <h2>Enter TikTok ID</h2>
-        <input type="text" id="tiktok-id" placeholder="Enter TikTok ID" />
+        <h2>Masukkan ID TikTok</h2>
+        <input type="text" id="tiktok-id" placeholder="Masukkan ID TikTok" />
         <button onclick="redirectToTikTok()">Go</button>
     </div>
-    <p id="redirecting" style="display: none;">Redirecting to TikTok...</p>
+    <p id="redirecting" style="display: none;">Mengalihkan ke TikTok...</p>
 </body>
 </html>
