@@ -13,24 +13,24 @@
             const pathSegments = path.split('/');
             const tiktokId = pathSegments[pathSegments.length - 1];
 
-            // Memastikan ID TikTok valid dan berbeda dari "tiktok"
-            if (tiktokId && tiktokId !== "" && tiktokId !== "tiktok") {
-                // Jika ada ID, arahkan ke URL TikTok
-                const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
-                window.location.href = tiktokUrl; // Gunakan href untuk pengalihan sederhana
+            // Jika ada ID TikTok yang valid
+            if (tiktokId && tiktokId !== "tiktok") {
+                // Arahkan ke URL TikTok yang sesuai
+                window.location.href = `https://vt.tiktok.com/${tiktokId}/`;
             } else {
-                // Jika tidak ada ID, tampilkan input untuk ID TikTok
+                // Tampilkan form input untuk memasukkan ID TikTok
                 document.getElementById('input-form').style.display = 'block';
             }
         });
 
         function redirectToTikTok() {
+            // Mendapatkan nilai dari input pengguna
             const inputId = document.getElementById('tiktok-id').value.trim();
             if (inputId) {
-                // Mengarahkan ke URL dengan ID TikTok baru
+                // Arahkan ke URL dengan ID TikTok baru
                 window.location.href = `/tiktok/${inputId}`;
             } else {
-                alert('Silakan masukkan ID TikTok yang valid.');
+                alert('Masukkan ID TikTok yang valid.');
             }
         }
     </script>
@@ -42,6 +42,5 @@
         <input type="text" id="tiktok-id" placeholder="Masukkan ID TikTok" />
         <button onclick="redirectToTikTok()">Go</button>
     </div>
-    <p id="redirecting" style="display: none;">Mengalihkan ke TikTok...</p>
 </body>
 </html>
