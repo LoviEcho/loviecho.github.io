@@ -6,15 +6,12 @@
     <title>Redirect to TikTok</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Mendapatkan path dari URL, contoh: '/tiktok/ZS2Pqy4gv'
-            const path = window.location.pathname;
-
-            // Mengecek apakah ada ID TikTok di URL dengan memisahkan path berdasarkan '/'
-            const pathSegments = path.split('/');
-            const tiktokId = pathSegments[pathSegments.length - 1];
+            // Mendapatkan parameter query dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const tiktokId = urlParams.get('id');
 
             // Jika ada ID TikTok yang valid
-            if (tiktokId && tiktokId !== "tiktok") {
+            if (tiktokId) {
                 // Arahkan ke URL TikTok yang sesuai
                 window.location.href = `https://vt.tiktok.com/${tiktokId}/`;
             } else {
@@ -27,8 +24,8 @@
             // Mendapatkan nilai dari input pengguna
             const inputId = document.getElementById('tiktok-id').value.trim();
             if (inputId) {
-                // Arahkan ke URL dengan ID TikTok baru
-                window.location.href = `/tiktok/${inputId}`;
+                // Arahkan ke URL dengan parameter query ID TikTok baru
+                window.location.href = `/tiktok?id=${inputId}`;
             } else {
                 alert('Masukkan ID TikTok yang valid.');
             }
