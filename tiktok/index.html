@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to TikTok</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mendapatkan path dari URL, contoh: '/tiktok/ZS2Pqy4gv'
+            const path = window.location.pathname;
+
+            // Mengambil ID dari path, contoh: 'ZS2Pqy4gv'
+            const tiktokId = path.split('/').pop();
+
+            // Membuat URL TikTok berdasarkan ID
+            const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
+
+            // Mengarahkan ke URL TikTok
+            window.location.href = tiktokUrl;
+        });
+    </script>
+</head>
+<body>
+    <p>Redirecting to TikTok...</p>
+</body>
+</html>
