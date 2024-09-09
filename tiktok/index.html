@@ -3,24 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect to TikTok</title>
+    <title>Create TikTok Link</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Mendapatkan path dari URL, contoh: '/tiktok/ZS2Pqy4gv'
-            const path = window.location.pathname;
+        function generateLink() {
+            const inputLink = document.getElementById('tiktok-link').value.trim();
+            
+            // Ekstrak ID TikTok dari link
+            const match = inputLink.match(/https:\/\/vt\.tiktok\.com\/([a-zA-Z0-9]+)/);
+            if (match && match[1]) {
+                const tiktokId = match[1];
+                const generatedLink = `https://yopi.azl.my.id/tiktok/${tiktokId}`;
+                
+                // Tampilkan hasil link
+                document.getElementById('result').value = generatedLink;
+                document.getElementById('result-container').style.display = 'block';
+            } else {
+                alert('Masukkan link TikTok yang valid.');
+            }
+        }
 
-            // Mengambil ID dari path, contoh: 'ZS2Pqy4gv'
-            const tiktokId = path.split('/').pop();
-
-            // Membuat URL TikTok berdasarkan ID
-            const tiktokUrl = `https://vt.tiktok.com/${tiktokId}/`;
-
-            // Mengarahkan ke URL TikTok
-            window.location.href = tiktokUrl;
-        });
+        function copyToClipboard() {
+            const resultField = document.getElementById('result');
+            resultField.select();
+            resultField.setSelectionRange(0, 99999); // Untuk perangkat mobile
+            document.execCommand('copy');
+            alert('Link berhasil disalin!');
+        }
     </script>
 </head>
 <body>
-    <p>Redirecting to TikTok...</p>
+    <!-- Form Input Link TikTok -->
+    <h2>Masukkan Link TikTok</h2>
+    <input type="text" id="tiktok-link" placeholder="https://vt.tiktok.com/..." style="width: 300px;" />
+    <button onclick="generateLink()">Click</button>
+
+    <!-- Hasil Link yang Dihasilkan -->
+    <div id="result-container" style="display: none; margin-top: 20px;">
+        <h3>Hasil Link:</h3>
+        <input type="text" id="result" readonly style="width: 300px;" />
+        <button onclick="copyToClipboard()">Salin</button>
+    </div>
 </body>
 </html>
