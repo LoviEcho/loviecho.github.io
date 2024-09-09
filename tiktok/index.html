@@ -22,14 +22,17 @@
 
         function redirectToTikTok() {
             // Mendapatkan nilai dari input pengguna
-            const inputId = document.getElementById('tiktok-id').value.trim();
-            if (inputId) {
+            const inputUrl = document.getElementById('tiktok-id').value.trim();
+            const match = inputUrl.match(/(?:https?:\/\/)?(?:www\.)?tiktok\.com\/(@[^\/]+\/video\/|v\/)?([a-zA-Z0-9]+)/);
+
+            if (match && match[2]) {
+                const tiktokId = match[2]; // Hanya ambil bagian ID TikTok
                 // Tampilkan URL dengan parameter query ID TikTok
-                const resultUrl = `${window.location.origin}/tiktok?id=${inputId}`;
+                const resultUrl = `${window.location.origin}/tiktok?id=${tiktokId}`;
                 document.getElementById('result-url').value = resultUrl;
                 document.getElementById('result-container').style.display = 'block';
             } else {
-                alert('Masukkan ID TikTok yang valid.');
+                alert('Masukkan link TikTok yang valid.');
             }
         }
 
@@ -59,8 +62,8 @@
 <body>
     <!-- Form Input ID TikTok -->
     <div id="input-form" style="display: none;">
-        <h2>Masukkan ID TikTok</h2>
-        <input type="text" id="tiktok-id" placeholder="Masukkan ID TikTok" />
+        <h2>Masukkan Link TikTok</h2>
+        <input type="text" id="tiktok-id" placeholder="Masukkan Link TikTok" />
         <button onclick="pasteTikTokId()">Paste</button>
         <button onclick="redirectToTikTok()">Click</button>
     </div>
