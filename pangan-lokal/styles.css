@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('SuperWater.ttf') format('truetype'); /* Ganti dengan nama file font Anda */
+}
+
+body {
+    font-family: 'MyCustomFont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6a11cb, #ff007f); /* Gradasi ungu ke pink */
+    color: white;
+}
+
+.poster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* Tambah latar belakang transparan pada poster */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+}
+
+.poster-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px; /* Membuat gambar memiliki sudut tumpul */
+}
+
+.poster-text {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Efek bayangan untuk teks */
+    background-color: rgba(255, 255, 255, 0.1); /* Transparansi di belakang teks */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Mengatur semua section di tengah */
+}
+
+.section {
+    width: 80%; /* Lebar kontainer section */
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 0; /* Jarak antar section */
+    padding: 20px;
+    border-radius: 10px; /* Sudut tumpul untuk section */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+    text-align: center; /* Teks di tengah */
+}
+
+.section h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.section p {
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
