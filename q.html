@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teks di Tengah</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+        }
+        .center-text {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 30px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            background: transparent;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background: #333;
+            color: #fff;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-y: auto;
+            max-height: 90vh;
+            box-sizing: border-box;
+        }
+        .modal-content h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .modal-content p {
+            margin: 0;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .close-button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .close-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text">
+        🥀🕊️💭 ୧⍤⃝📷 <br>
+        倒れても、また歩き出す <br>
+        ﴾فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴿٥ 🤲🏻 <br>
+        violet · brightest · darkest <br>
+        ✩₊˚⋆ <br>
+        ☾⋆⁺₊ <br>
+        ✧⭒˚｡ ⋆<br>
+        aisaretai<br><br><br><br><br><br>
+    </div>
+    <button class="button" onclick="openModal()"></button>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Dia, Diriku, Dan Waktu</h2>
+            <p>
+                Dia, yang hadir di ujung senja,  
+                Dengan senyum yang tak pernah luntur,  
+                Membawa cahaya di hari-hari kelam,  
+                Menyelimuti setiap luka dengan harapan. <br><br>
+
+                Diriku, yang terkadang ragu,  
+                Mencari arti dalam setiap langkah,  
+                Tersesat dalam keraguan,  
+                Namun selalu kembali pada dia yang menunggu. <br><br>
+
+                Waktu... ah, waktu yang tak pernah berhenti,  
+                Mengalir seperti sungai tanpa ujung,  
+                Menjadi saksi bisu setiap pertemuan,  
+                Setiap tawa, dan setiap air mata yang jatuh. <br><br>
+
+                Dia, diriku, dan waktu,  
+                Tiga entitas yang tak bisa terpisah,  
+                Saling mengisi, saling menunggu,  
+                Menjadi cerita yang tak pernah usai. <br><br>
+
+                Di antara detik yang terus berjalan,  
+                Ada kita yang tetap bertahan,  
+                Menyulam kenangan, meski waktu terus berlalu,  
+                Karena cinta kita adalah ruang yang tak terhingga. <br><br>
+
+                Waktu mungkin akan memisahkan,  
+                Tapi dia, diriku, dan waktu—  
+                Akan selalu menjadi satu,  
+                Dalam kenangan yang abadi, tak terlupakan.
+            </p>
+            <button class="close-button" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
